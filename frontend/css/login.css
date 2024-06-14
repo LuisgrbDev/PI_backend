@@ -5,7 +5,7 @@ body {
 }
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 header {
-    background-color: #6D1C1C;
+    background-color: #941E1E;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -17,6 +17,16 @@ header .logo {
     font-size: 1.5rem;
     font-weight: bold;
 }
+
+.logo-img img {
+    max-width: 150px;
+    height: auto;
+}
+
+.logo-img {
+    margin-left: 20px;
+}
+
 
 header nav ul {
     list-style: none;
@@ -123,11 +133,11 @@ p a:hover {
 }
 
 footer {
-    background-color: #6D1C1C;
+    background-color: #941E1E;
     color: white;
     text-align: center;
-    padding: 1rem 0;
-    position: absolute;
+    padding: 2rem 0;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
