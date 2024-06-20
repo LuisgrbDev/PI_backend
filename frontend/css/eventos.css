@@ -53,11 +53,12 @@ footer {
 }
 
 #cards-eventos {
-    margin-left: 170px;
+    margin-left: 250px;
+    align-items: center;
     text-align: left;
-    padding: 50px;
+    /* padding: 50px; */
     display: flex;
-    line-height: 3px;;
+    line-height: 3px;
 }
 
 
