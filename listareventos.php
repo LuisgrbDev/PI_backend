@@ -1,10 +1,10 @@
 <?php
 include_once("backend/config/conexao.php");
-include_once("backend/controller/controllerEventos.php");
-include_once("backend/model/modelEventos.php");
+include_once("backend/controller/controllerEvento.php");
+include_once("backend/model/modelEvento.php");
 
-$controllerEventos = new controllerEventos();
-$resultado =$controllerEventos->listarEventos();
+$controllerEventos = new controllerEvento();
+$resultado =$controllerEventos->listarEvento();
 $msg = array("Eventos" => $resultado);
 
 echo json_encode($msg);

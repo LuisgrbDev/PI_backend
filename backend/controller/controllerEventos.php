@@ -1,42 +1,33 @@
-<?php
-
+<?php 
 class controllerEventos{
+
     public function listarEventos(){
-        try{
+        try{    
             $modelEventos = new modelEventos();
             return $modelEventos->listarEventos();
-        }catch(PDOException $e){
+        }catch (PDOException $e){
             return false;
         }
     }
-
-    public function cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao){
-      try{
-        $modelEventos = new modelEventos();
-        return $modelEventos->cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao);
-      } catch (PDOException $e){
-        return false;
-      }
-    }
-
-    public function atualizarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao,$id_evento){
+    public  function cadastrarEventos($id_convidado,$id_evento,$id_categoria){
         try{
             $modelEventos = new modelEventos();
-            return $modelEventos->atualizarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao,$id_evento);
+            return $modelEventos->cadastrarEventos($id_convidado,$id_evento,$id_categoria);
         } catch(PDOException $e){
             return false;
         }
     }
-    public function excluirEvento($id_evento){
+
+    public  function excluirEventos($id){
         try{
             $modelEventos = new modelEventos();
-            return $modelEventos->excluirEvento($id_evento);
+            return $modelEventos->excluirEventos($id);
         } catch(PDOException $e){
             return false;
         }
     }
+
+
 }
-
-
 
 ?>

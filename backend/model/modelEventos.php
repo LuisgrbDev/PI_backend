@@ -1,60 +1,49 @@
 <?php
-class modelEventos{
+
+class modelEventos {
+
     public function listarEventos(){
         try{
             $pdo = Database::conexao();
-            $sql =$pdo->query("SELECT * FROM evento");
-            $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+            $listar = $pdo->query("SELECT EVENTO.nomeEvento AS EVENTO, 
+                                EVENTO.data_evento as DataDoEvento, 
+                                CONVIDADOS.nomeConvidado as NOME,
+                                CONVIDADOS.cpf as CPF, 
+                                CATEGORIA.nomeCategoria as Categoria FROM eventos
+                                JOIN convidados on eventos.id_convidado = convidados.id_convidado
+                                JOIN categoria on eventos.id_categoria = categoria.id_categoria
+                                INNER JOIN evento on eventos.id_evento = evento.id_evento group by evento.data_evento");
+            $resultado = $listar->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
-        }catch(PDOException $e){
+        } catch(PDOException $e){
             return false;
         }
     }
-    public function cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao){
+
+    public function cadastrarEventos($id_convidado,$id_evento,$id_categoria){
         try{
             $pdo = Database::conexao();
-            $sql = $pdo->prepare("INSERT INTO evento (nomeEvento,data_evento,horaInicio,horaFim,descricao) VALUES (:nomeEvento,:data_evento,:horaInicio,:horaFim,:descricao)");
-            $sql->bindParam(":nomeEvento",$nomeEvento);
-            $sql->bindParam(":data_evento",$data_evento);
-            $sql->bindParam(":horaInicio",$horaInicio);
-            $sql->bindParam(":horaFim",$horaFim);
-            $sql->bindParam(":descricao",$descricao);
+            $sql = $pdo->prepare("INSERT INTO eventos (id_convidado, id_evento, id_categoria) VALUES (:id_convidado,:id_evento,:id_categoria)");
+            $sql->bindParam("id_convidado",$id_convidado);
+            $sql->bindParam("id_evento",$id_evento);
+            $sql->bindParam("id_categoria",$id_categoria);
             $sql->execute();
             return true;
-
         }catch(PDOException $e){
             return false;
         }
     }
-    
-    public function atualizarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao,$id_evento){
-        try{
-            $pdo = Database::conexao();
-            $prepare = $pdo->prepare("UPDATE evento SET nomeEvento = :nomeEvento, data_evento = :data_evento, horaInicio =:horaInicio, horaFim = :horaFim, descricao =:descricao WHERE id_evento = :id_evento ");
-            $prepare->bindParam("nomeEvento", $nomeEvento);
-            $prepare->bindParam("data_evento", $data_evento);
-            $prepare->bindParam("horaInicio",$horaInicio);
-            $prepare->bindParam("horaFim",$horaFim);
-            $prepare->bindParam("descricao",$descricao);
-            $prepare->bindParam("id_evento", $id_evento);
-            $prepare->execute();
-            return true;
-        } catch (PDOException $e){
-            return false;
-        }
-    }
-    
-    public function excluirEvento($id_evento){
-        try{
-            $pdo = Database::conexao();
-            $excluir = $pdo->prepare("DELETE FROM evento WHERE id_evento = :id_evento");
-            $excluir->bindParam("id_evento", $id_evento);
-            $excluir->execute();
-            return true;
 
+    public function excluirEventos($id){
+        try{
+            $pdo = Database::conexao();
+            $sql = $pdo->prepare("DELETE FROM eventos WHERE id = :id");
+            $sql->bindParam("id",$id);
+            $sql->execute();
+            return true;
         }catch(PDOException $e){
+            echo $e;
             return false;
         }
     }
 }
-?>
