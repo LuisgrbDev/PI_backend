@@ -28,13 +28,14 @@ class modelUsuarios {
         }
     }
 
-    public function atualizarUsuario($nome,$email,$senha){
+    public function atualizarUsuario($nome,$email,$senha,$id_usuario){
         try{
             $pdo = Database::conexao();
-            $prepare = $pdo->prepare("UPDATE usuario SET nome = :nome, email = :email, senha =:senha");
+            $prepare = $pdo->prepare("UPDATE usuario SET nome = :nome, email = :email, senha =:senha WHERE id_usuario = :id_usuario");
             $prepare->bindParam("nome", $nome);
             $prepare->bindParam("email", $email);
             $prepare->bindParam("senha",$senha);
+            $prepare->bindParam("id_usuario",$id_usuario);
             $prepare->execute();
             return true;
         } catch (PDOException $e){

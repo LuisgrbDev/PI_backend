@@ -13,7 +13,7 @@ $id_usuario = $data["id_usuario"];
 
 
 $controllerUsuarios = new controllerUsuarios();
-$resultado = $controllerUsuarios->atualizarUsuario($nome, $email, $senha);
+$resultado = $controllerUsuarios->atualizarUsuario($nome, $email, $senha,$id_usuario);
 
 if($resultado) {
     $msg = array("msg" => "Usuário atualizado com sucesso!");

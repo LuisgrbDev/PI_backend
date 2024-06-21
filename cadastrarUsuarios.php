@@ -9,7 +9,6 @@ $data = json_decode(file_get_contents("php://input"), true);
 $nome = $data["nome"];
 $email = $data["email"];
 $senha = $data["senha"];
-$id_usuario = $data["id_usuario"];
 
 $controllerUsuarios = new controllerUsuarios();
 $resultado = $controllerUsuarios->cadastrarUsuario($nome, $email, $senha);

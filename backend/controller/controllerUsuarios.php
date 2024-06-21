@@ -21,16 +21,16 @@ class controllerUsuarios {
       
     }
 
-    public function atualizarUsuario($nome,$email,$senha){
+    public function atualizarUsuario($nome,$email,$senha,$id_usuario){
         try{
             $modelUsuarios = new modelUsuarios();
-            return $modelUsuarios->atualizarUsuario($nome,$email,$senha);
+            return $modelUsuarios->atualizarUsuario($nome,$email,$senha,$id_usuario);
         } catch(PDOException $e){
             return false;
         }
 }
 
-public function excluirEvento($id_usuario){
+public function excluirUsuario($id_usuario){
     try{
         $modelUsuarios = new modelUsuarios();
         return $modelUsuarios->excluirUsuario($id_usuario);
