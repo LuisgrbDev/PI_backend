@@ -39,11 +39,11 @@ class modelConvidados {
         try {
             $pdo = Database::conexao();
             $atualizar = $pdo->prepare("UPDATE convidados 
-                                        SET id_convidado = :nome, 
+                                        SET nomeConvidado = :nomeConvidado, 
                                         email = :email, 
                                         telefone = :telefone,
                                         cpf = :cpf,
-                                        dataNascimento = :dataNascimento,
+                                        dataNascimento = :dataNascimento
                                         WHERE id_convidado = :id_convidado");
             $atualizar->bindParam(':nomeConvidado', $nomeConvidado);
             $atualizar->bindParam(':email', $email);
