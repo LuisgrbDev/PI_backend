@@ -17,9 +17,19 @@ h2 {
     
 }
 
-.titulo {
-    padding-left: 50px;
+h5 {
+    margin-left: 230px;
 }
+
+.titulo a {
+    text-decoration: none;
+    color: #941E1E;
+    
+}
+
+ .titulo {
+    padding-left: 50px;
+} 
 
 .titulo span  {
     display: block;
@@ -51,7 +61,7 @@ h2 {
 }
 
 footer {
-    position: fixed;
+   /* position: fixed; */
     bottom: 0;
     width: 100%;
 }
@@ -123,4 +133,5 @@ color: white;
 text-align: center;
 padding: 14px 16px;
 text-decoration: none;
+
 }
