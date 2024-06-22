@@ -1,3 +1,14 @@
+<?php
+include_once ("../backend/config/conexao.php");
+include_once ("../backend/controller/controllerEvento.php");
+include_once ("../backend/model/modelEvento.php"); 
+$controllerEvento = new controllerEvento();
+$eventos = $controllerEvento->listarEvento();
+?>
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -29,21 +40,21 @@
         <div class="titulo">
             <h2>próximos <span>EVENTOS</span></h2>
         </div>
+        <?php foreach($eventos as $evento):?>
         <div id="cards-eventos">
             <div class="primeira linha">
         
                <div class="first"><img class="imagem" src="../assets/card1.png" alt="">
-               <a href="#"> <h3 class="dataevento">Sábado, 12 out - 15:00</h3></a>
-                <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
-                <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
+               <a href="#"> <h3 class="dataevento"><?php echo $evento["data_evento"];?></h3></a>
+                <h4 class="nomeevento"><?php echo $evento["nomeEvento"];?></h4>
+                <p class="localevento"><?php echo $evento["descricao"];?></p>
             
-             <img class="imagem" src="../assets/card2.png" alt="">
-             <a href="#"> <h3 class="dataevento">Domingo, 22 out - 17:00</h3></a>
-                <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
-                <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
-            </div></div> 
-        
-        <div class="second">
+                <div class="first"><img class="imagem" src="../assets/card1.png" alt="">
+               <a href="#"> <h3 class="dataevento"><?php echo $evento["data_evento"];?></h3></a>
+                <h4 class="nomeevento"><?php echo $evento["nomeEvento"];?></h4>
+                <p class="localevento"><?php echo $evento["descricao"];?></p>
+            <?php endforeach; ?>
+        <!-- <div class="second">
             <img class="imagem" src="../assets/card3.png" alt="">
             <a href="#"> <h3 class="dataevento">Sexta, 11 dez - 14:00</h3></a>
                 <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
@@ -66,7 +77,7 @@
                 <a href="#"> <h3 class="dataevento">Sábado, 12 out - 15:00</h3></a>
                 <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
                 <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
-            </div> 
+            </div>  -->
     </section>
 
 

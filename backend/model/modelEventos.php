@@ -12,7 +12,7 @@ class modelEventos {
                                 CATEGORIA.nomeCategoria as Categoria FROM eventos
                                 JOIN convidados on eventos.id_convidado = convidados.id_convidado
                                 JOIN categoria on eventos.id_categoria = categoria.id_categoria
-                                INNER JOIN evento on eventos.id_evento = evento.id_evento group by evento.data_evento");
+                                INNER JOIN evento on eventos.id_evento = evento.id_evento group by evento.data_evento,  convidados.nomeConvidado");
             $resultado = $listar->fetchAll(PDO::FETCH_ASSOC);
             return $resultado;
         } catch(PDOException $e){

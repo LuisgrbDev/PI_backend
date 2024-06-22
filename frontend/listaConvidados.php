@@ -1,3 +1,15 @@
+<?php
+include_once ("../backend/config/conexao.php");
+include_once ("../backend/controller/controllerEventos.php");
+include_once ("../backend/model/modelEventos.php"); 
+$controllerEventos = new controllerEventos();
+$eventos = $controllerEventos->listarEventos();
+?>
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -37,31 +49,13 @@
                 <th>Cpf</th>
                 <th>Área</th>
             </tr>
+            <?php foreach($eventos as $evento):?>
             <tr>
-                <td>Camila Rocha de Andrade<br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td>888.000.222.33-45</td>
-                <td>VIP</td>
+                <td><?php echo $evento["NOME"];?><br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
+                <td><?php echo $evento["CPF"];?></td>
+                <td><?php echo $evento["Categoria"];?></td>
             </tr>
-            <tr>
-                <td>Camila Rocha de Andrade<br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td>888.000.222.33-45</td>
-                <td>VIP</td>
-            </tr>
-            <tr>
-                <td>Camila Rocha de Andrade<br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td>888.000.222.33-45</td>
-                <td>VIP</td>
-            </tr>
-            <tr>
-                <td>Camila Rocha de Andrade<br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td>888.000.222.33-45</td>
-                <td>VIP</td>
-            </tr>
-            <tr>
-                <td>Camila Rocha de Andrade<br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td>888.000.222.33-45</td>
-                <td>VIP</td>
-            </tr>
+            <?php endforeach; ?>
         </table>
     </section>
 
