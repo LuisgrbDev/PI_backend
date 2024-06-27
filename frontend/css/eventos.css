@@ -125,3 +125,94 @@ footer {
 .text-rodape {
     color: white;
 }
+#cards-eventos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px; /* Ajuste o padding conforme necessário */
+}
+
+.card-evento {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.card-evento img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.card-evento h3 {
+    font-size: 18px;
+    color: #941E1E;
+    margin-top: 0;
+}
+
+.card-evento h4 {
+    font-size: 16px;
+    color: #2B2B2B;
+    font-weight: 600;
+    margin-top: 5px;
+}
+
+.card-evento p {
+    font-size: 14px;
+    color: #696969;
+    margin-top: 5px;
+    margin-bottom: 0; /* Evitar espaçamento excessivo */
+}
+
+.card-evento a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.imagem:hover {
+    transition: 0.5s;
+}
+
+.lista-nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-size: 20px;
+    padding-right: 30px;
+}
+
+.lista-nav li {
+    float: right;
+}
+
+.lista-nav li:first-child {
+    float: left;
+}
+
+.lista-nav li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+
+.titulo a {
+    text-decoration: none;
+    color: #941E1E;
+    
+}
+
+ .titulo {
+    font-size: 29px;
+    padding-left: 50px;
+} 

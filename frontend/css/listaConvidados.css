@@ -4,40 +4,45 @@ body {
     padding: 0;
 }
 
-header, footer {
+header {
     background-color: #941E1E;
-    color: #fff;
-    text-align: center;
-    padding: 20px 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
 }
 
-header .lista-nav {
-    list-style-type: none;
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-img img {
+    max-width: 150px;
+    height: auto;
+}
+
+.logo-img {
+    margin-left: 20px;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    font-size: 20px;
 }
 
-header .lista-nav li {
-    float: right;
+header nav ul li {
+    margin-left: 2rem;
 }
 
-header .lista-nav li:first-child {
-    float: left;
-}
-
-header .lista-nav li a {
-    display: block;
+header nav ul li a {
     color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
-}
-
-header .logo img {
-    max-width: 200px;
-    height: auto;
+    font-weight: bold;
 }
 
 .event-banner {
@@ -101,11 +106,14 @@ header .logo img {
 }
 
 footer {
-    position: fixed;
+    background-color: #941E1E;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
     bottom: 0;
     width: 100%;
 }
-
 
 .material-symbols-outlined {
     font-variation-settings:
@@ -114,4 +122,4 @@ footer {
     'GRAD' 0,
     'opsz' 24;
     padding-left: 30px;
-  }
+}
