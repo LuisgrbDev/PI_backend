@@ -1,5 +1,7 @@
 <?php
 
+require_once 'backend/config/conexao.php';
+
 class modelUsuarios {
     public function listarUsuarios(){
         try {
