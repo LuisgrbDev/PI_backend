@@ -69,7 +69,7 @@ class modelUsuarios {
                 return false;
             }
         } catch(PDOException $e) {
-            return false; 
+            return $e; 
         }
     }
 }

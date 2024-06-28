@@ -21,14 +21,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $resultado = $controllerUsuarios->cadastrarUsuario($nome, $email, $senha_hash);
 
     if ($resultado) {
-        $_SESSION['mensagem'] = "Usuário cadastrado com sucesso!";
+        $_SESSION['mensagem'] = "Usuário cadastrado com sucesso! Faça o login.";
         $_SESSION['tipo_mensagem'] = "sucesso";
+        header("Location: frontend/login.php");
     } else {
         $_SESSION['mensagem'] = "Erro ao cadastrar usuário.";
         $_SESSION['tipo_mensagem'] = "erro";
+        header("Location: frontend/cadastro.php");
     }
-
-    header("Location: frontend/cadastro.php");
     exit();
 }
 ?>
