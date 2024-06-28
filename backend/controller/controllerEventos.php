@@ -9,6 +9,15 @@ class controllerEventos{
             return false;
         }
     }
+
+    public function buscarEventosId(){
+        try{    
+            $modelEventos = new modelEventos();
+            return $modelEventos->buscarEventosId();
+        }catch (PDOException $e){
+            return false;
+        }
+    }
     public  function cadastrarEventos($id_convidado,$id_evento,$id_categoria){
         try{
             $modelEventos = new modelEventos();
