@@ -4,87 +4,69 @@ include_once ("../backend/controller/controllerEvento.php");
 include_once ("../backend/model/modelEvento.php"); 
 $controllerEvento = new controllerEvento();
 $eventos = $controllerEvento->listarEvento();
+
 ?>
 
 
 
 
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap"
         rel="stylesheet">
-    <title>Eventos</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" href="../frontend/css/eventos.css">
 </head>
 
 <body>
-
     <header>
-        <ul class="lista-nav">
-            <div class="logo">
-                <li><a href="login.html"><img src="../assets/logo.png" alt=""></a></li>
-            </div>
-            <li><a href="eventos.html">EVENTOS</a></li>
-            <li><a href="cadastro.html">CADASTRE-SE</a></li>
-        </ul>
+        <div class="logo-img"><a href="login.html"><img src="../assets/logo.png" alt="Logo"></a></div>
+        <nav>
+            <ul>
+                <li><a href="login.html">LOGIN</a></li>
+                <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="cadastro.html">CADASTRE-SE</a></li>
+                <span class="material-symbols-outlined">login</span>
+            </ul>
+        </nav>
     </header>
 
-    <section>
-        <div class="titulo">
-            <h2>próximos <span>EVENTOS</span></h2>
+    <main>
+        <section>
+            <div class="titulo">
+                <h2>Próximos <br> <span class="titulo-texto">EVENTOS</span></h2>
+                <a href="cadastrarEvento.php"> <h5>Cadastrar novo evento</h5></a>
+            </div>
+            <div class="container">
+            <div id="cards-eventos">
+    <?php foreach($eventos as $evento): ?>
+        <div class="card-evento">
+        <img class="imagem" src="<?php echo $evento['imagem']; ?>" alt="">
+            <div class="evento-info">
+                <a href="listaconvidados.php?id=<?php echo $evento['id_evento'];?>">
+                    <h3 class="dataevento"><?php echo $evento['data_evento']; ?></h3>
+                </a>
+                <h4 class="nomeevento"><?php echo $evento['nomeEvento']; ?></h4>
+                <p class="localevento"><?php echo $evento['descricao']; ?></p>
+            </div>
         </div>
-        <?php foreach($eventos as $evento):?>
-        <div id="cards-eventos">
-            <div class="primeira linha">
-        
-               <div class="first"><img class="imagem" src="../assets/card1.png" alt="">
-               <a href="#"> <h3 class="dataevento"><?php echo $evento["data_evento"];?></h3></a>
-                <h4 class="nomeevento"><?php echo $evento["nomeEvento"];?></h4>
-                <p class="localevento"><?php echo $evento["descricao"];?></p>
-            
-                <div class="first"><img class="imagem" src="../assets/card1.png" alt="">
-               <a href="#"> <h3 class="dataevento"><?php echo $evento["data_evento"];?></h3></a>
-                <h4 class="nomeevento"><?php echo $evento["nomeEvento"];?></h4>
-                <p class="localevento"><?php echo $evento["descricao"];?></p>
-            <?php endforeach; ?>
-        <!-- <div class="second">
-            <img class="imagem" src="../assets/card3.png" alt="">
-            <a href="#"> <h3 class="dataevento">Sexta, 11 dez - 14:00</h3></a>
-                <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
-                <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
-            
-    
-       <img class="imagem" src="../assets/card4.png" alt="">
-       <a href="#"> <h3 class="dataevento">Sábado, 12 out - 15:00</h3></a>
-            <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
-            <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
-        </div>
-       
-        <div class="third">
-        <img src="../assets/card5.png" alt="">
-        <a href="#"> <h3 class="dataevento">Sábado, 12 out - 15:00</h3></a>
-                <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
-                <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
-            
-            <div><img src="../assets/card6.png" alt="">
-                <a href="#"> <h3 class="dataevento">Sábado, 12 out - 15:00</h3></a>
-                <h4 class="nomeevento">NUMANICE | CAMPINAS</h4>
-                <p class="localevento">Parque de Eventos CCA- Americana, Sp</p>
-            </div>  -->
-    </section>
-
+    <?php endforeach; ?>
+</div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <p>© TODOS OS DIREITOS RESERVADOS ©</p>
+        <p class="text-rodape">© TODOS OS DIREITOS RESERVADOS ©</p>
     </footer>
-
 </body>
 
 </html>

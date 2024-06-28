@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
-    <link rel="stylesheet" href="../frontend/css/cadastro.css">
+    <link rel="stylesheet" href="../frontend/css/cadastrarevento.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -26,15 +26,24 @@
 
     <main>
         <div class="form-container">
-            <h2>Faça seu <br> <span class="form-text">CADASTRO</span></h2>
+            <h2>CADASTRE UM NOVO <br> <span class="form-text">EVENTO</span></h2>
             <form action="#" method="post">
-                <input type="text" name="nome" placeholder="Nome" required>
-                <input type="email" name="email" placeholder="E-mail" required>
-                <input type="password" name="senha" placeholder="Senha" required>
-                <input type="password" name="confirma_senha" placeholder="Confirme a senha" required>
+           
+            <label for="">Nome Evento</label>
+                <input type="text" name="nome" placeholder="" required>
+                <label for="">Data Evento</label>
+                <input type="date" name="email" placeholder="E-mail" required>
+                <label for="">Horario Inicio</label>
+                <input type="time" name="senha" placeholder="Senha" required>
+                <label for="">Horario Encerramento</label>
+                <input type="time" name="nome" placeholder="Nome Evento" required>
+                <label for="">Descrição do Evento</label>
+                <input type="text" name="confirma_senha" placeholder="" required>
+                <label for="">Imagem Evento</label>
+            <input type="file" name="nome" placeholder="" required>
                 <button type="submit">CADASTRAR</button>
             </form>
-            <p>Já possui cadastro? <br><a href="login.html">Faça o login!</a></p>
+           
         </div>
     </main>
 

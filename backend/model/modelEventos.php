@@ -6,7 +6,7 @@ class modelEventos {
         try{
             $pdo = Database::conexao();
             $listar = $pdo->query("SELECT EVENTO.nomeEvento AS EVENTO, 
-                                EVENTO.data_evento as DataDoEvento, 
+                                EVENTO.data_evento as DataDoEvento,EVENTO.descricao AS descricao,
                                 CONVIDADOS.nomeConvidado as NOME,
                                 CONVIDADOS.cpf as CPF, 
                                 CATEGORIA.nomeCategoria as Categoria FROM eventos

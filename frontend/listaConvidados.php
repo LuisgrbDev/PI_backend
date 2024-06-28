@@ -9,7 +9,6 @@ $eventos = $controllerEventos->listarEventos();
 
 
 
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -18,18 +17,23 @@ $eventos = $controllerEventos->listarEventos();
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>Numanice | Campinas</title>
     <link rel="stylesheet" href="../frontend/css/listaConvidados.css">
 </head>
 <body>
     <header>
-        <ul class="lista-nav">
-            <div class="logo">
-                <li><a href="login.html"><img src="../assets/logo.png" alt="Logo"></a></li>
-            </div>
-            <li><a href="eventos.html">EVENTOS</a></li>
-            <li><a href="cadastro.html">CADASTRE-SE</a></li>
-        </ul>
+        <div class="logo-img"><a href="cadastro.html"><img src="../assets/logo.png" alt=""></a></div>
+        <nav>
+            <ul>
+                <li><a href="login.html">LOGIN</a></li>
+                <li><a href="cadastro.html">CADASTRE-SE</a></li>
+                <li><a href="eventos.html">EVENTOS</a></li>
+                <span class="material-symbols-outlined">
+                    login
+                    </span>
+            </ul>
+        </nav>
     </header>
 
     <section class="event-banner">
@@ -60,7 +64,7 @@ $eventos = $controllerEventos->listarEventos();
     </section>
 
     <footer>
-        <p>© TODOS OS DIREITOS RESERVADOS ©</p>
+        <p class="text-rodape">© TODOS OS DIREITOS RESERVADOS ©</p>
     </footer>
 </body>
 </html>
