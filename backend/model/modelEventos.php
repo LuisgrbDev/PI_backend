@@ -6,14 +6,35 @@ class modelEventos {
         try{
             $pdo = Database::conexao();
             $listar = $pdo->query("SELECT EVENTO.nomeEvento AS EVENTO, 
-                                EVENTO.data_evento as DataDoEvento, 
+                                EVENTO.data_evento as DataDoEvento,EVENTO.descricao AS descricao,
                                 CONVIDADOS.nomeConvidado as NOME,
                                 CONVIDADOS.cpf as CPF, 
                                 CATEGORIA.nomeCategoria as Categoria FROM eventos
                                 JOIN convidados on eventos.id_convidado = convidados.id_convidado
                                 JOIN categoria on eventos.id_categoria = categoria.id_categoria
-                                INNER JOIN evento on eventos.id_evento = evento.id_evento group by evento.data_evento");
+                                INNER JOIN evento on eventos.id_evento = evento.id_evento group by evento.data_evento,  convidados.nomeConvidado");
             $resultado = $listar->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        } catch(PDOException $e){
+            return false;
+        }
+    }
+
+    public function buscarEventoId($id_evento){
+        try{
+            $pdo = Database::conexao();
+            $listar = $pdo->query("SELECT EVENTO.nomeEvento AS EVENTO, 
+                                EVENTO.data_evento as DataDoEvento,EVENTO.descricao AS descricao,
+                                CONVIDADOS.nomeConvidado as NOME,
+                                CONVIDADOS.cpf as CPF, 
+                                CATEGORIA.nomeCategoria as Categoria FROM eventos
+                                JOIN convidados on eventos.id_convidado = convidados.id_convidado
+                                JOIN categoria on eventos.id_categoria = categoria.id_categoria
+                                INNER JOIN evento on eventos.id_evento = evento.id_evento group by evento.data_evento,  convidados.nomeConvidado WHERE id_evento = :id_evento");
+            $listar->bindParam("id_evento",$id_evento);
+            $listar->execute();
+            $resultado = $listar->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
             return $resultado;
         } catch(PDOException $e){
             return false;

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
     <link rel="stylesheet" href="../frontend/css/login.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
     <header>
@@ -13,16 +14,20 @@
             <ul>
                 <li><a href="cadastro.html">CADASTRE-SE</a></li>
                 <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="listaConvidados.html">LISTA CONVIDADOS</a></li>
+                <span class="material-symbols-outlined">
+                    login
+                    </span>
             </ul>
         </nav>
     </header>
     <main>
         <div class="login-container">
             <h2>Faça seu <br> <span class="login-text">LOGIN</span></h2>
-            <form>
-                <input type="email" placeholder="E-mail" required>
-                <input type="password" placeholder="Senha" required>
-                <button type="submit">ENTRAR</button>
+            <form action="login.php" method="POST">
+                <input type="email" name="email" placeholder="E-mail" required>
+                <input type="password" name="senha" placeholder="Senha" required>
+                <button type="submit" name="login">ENTRAR</button>
             </form>
             <p>Não possui cadastro? <br><a href="#">Faça o cadastro!</a></p>
         </div>
@@ -32,3 +37,8 @@
     </footer>
 </body>
 </html>
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 01800f9d33a5cd58c1990645cfadd43bd6d3df31
