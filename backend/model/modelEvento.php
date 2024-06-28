@@ -10,6 +10,18 @@ class modelEvento{
             return false;
         }
     }
+    public function buscarEventoId($id_evento){
+        try{
+            $pdo = Database::conexao();
+            $sql =$pdo->prepare("SELECT * FROM evento WHERE id =:id_evento");
+            $sql->bindParam("id_evento",$id_evento);
+            $sql->execute();
+            $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
+            return $resultado;
+        }catch(PDOException $e){
+            return false;
+        }
+    }
     public function cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao){
         try{
             $pdo = Database::conexao();

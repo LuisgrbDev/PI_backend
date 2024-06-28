@@ -76,12 +76,14 @@ form {
     flex-direction: column;
 }
 
-input[type="text"], input[type="email"], input[type="password"] {
+input[type="text"], input[type="date"], input[type="time"],input[type="file"] {
     padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #5a1717;
     border-radius: 4px;
 }
+
+
 
 button {
     background-color: #6D1C1C;
@@ -124,8 +126,4 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 01800f9d33a5cd58c1990645cfadd43bd6d3df31
