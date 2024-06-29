@@ -4,6 +4,8 @@ include_once ("../backend/controller/controllerEventos.php");
 include_once ("../backend/model/modelEventos.php"); 
 $controllerEventos = new controllerEventos();
 $eventos = $controllerEventos->listarEventos();
+
+
 ?>
 
 
@@ -40,12 +42,12 @@ $eventos = $controllerEventos->listarEventos();
         <img src="../assets/card1.png" alt="Numanice Campinas">
     </section>
 
-    <section class="event-details">
-        <h1>NUMANICE | CAMPINAS</h1>
+    <section class="event-details" >
+        <h1><?php echo $eventos ? $evento["evento"]: ""?></h1>
         <p>Sábado, 12 out - 15:00<br>Parque de Eventos CCA - Americana, SP</p>
     </section>
 
-    <section class="guest-list">
+    <section class="guest-list" >
         <h2>Lista de Convidados</h2>
         <table>
             <tr>
@@ -55,9 +57,9 @@ $eventos = $controllerEventos->listarEventos();
             </tr>
             <?php foreach($eventos as $evento):?>
             <tr>
-                <td><?php echo $evento["NOME"];?><br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td><?php echo $evento["CPF"];?></td>
-                <td><?php echo $evento["Categoria"];?></td>
+                <td><?php echo $eventos ? $evento["nome"]:"" ?><br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
+                <td><?php echo $eventos ? $evento["cpf"]:"" ?></td>
+                <td><?php echo $eventos ? $evento["categoria"]:"" ?></td>
             </tr>
             <?php endforeach; ?>
         </table>

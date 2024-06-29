@@ -1,18 +1,30 @@
 <?php
 include_once("backend/config/conexao.php");
-include_once("backend/controller/controllerEventos.php");
-include_once("backend/model/modelEventos.php");
+include_once("backend/controller/controllerEvento.php");
+$type = filter_input(INPUT_POST, "type");
 
-$data = json_decode(file_get_contents('php://input'),true);
-$id_convidado = $data["id_convidado"];
-$id_categoria = $data["id_categoria"];
-$id_evento = $data["id_evento"];
+if ($type === "register") {
+    
+    $controllerEvento = new controllerEvento();
+    
+    $nomeEvento = filter_input(INPUT_POST,"nomeEvento");
+    $dataEvento = $_POST["dataEvento"];
 
-
-$controller = NEW controllerEventos();
-$resultado = $controller->cadastrarEventos($id_convidado,$id_evento,$id_categoria);
-
-if($resultado) echo "deu muito bom";
-
-
+    $horarioInicio = $_POST["horarioInicio"];
+    $horarioFim = $_POST["horarioEncerramento"];
+    $descricaoEvento = $_POST["descricaoEvento"];
+    
+    // $imagemEvento = $_FILES["imagemEvento"];
+  
+    $resultado = $controllerEvento->cadastrarEvento($nomeEvento, $dataEvento, $horarioInicio, $horarioFim, $descricaoEvento);
+    echo $resultado;
+    if ($resultado) {
+        
+        header("Location: frontend/eventos.php");
+        exit();
+    } else {
+        echo "Erro ao cadastrar evento.";
+    }
+}
 ?>
+<h2>OLA</h2>

@@ -10,10 +10,10 @@ class controllerEventos{
         }
     }
 
-    public function buscarEventosId(){
+    public function buscarEventosId($id_evento){
         try{    
             $modelEventos = new modelEventos();
-            return $modelEventos->buscarEventosId();
+            return $modelEventos->buscarEventoId($id_evento);
         }catch (PDOException $e){
             return false;
         }

@@ -51,7 +51,7 @@ $eventos = $controllerEvento->listarEvento();
         <div class="card-evento">
         <img class="imagem" src="<?php echo $evento['imagem']; ?>" alt="">
             <div class="evento-info">
-                <a href="listaconvidados.php?id=<?php echo $evento['id_evento'];?>">
+                <a href="listaConvidados.php?id_evento=<?php echo $evento['id_evento']; ?>">
                     <h3 class="dataevento"><?php echo $evento['data_evento']; ?></h3>
                 </a>
                 <h4 class="nomeevento"><?php echo $evento['nomeEvento']; ?></h4>

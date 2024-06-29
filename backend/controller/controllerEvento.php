@@ -1,5 +1,5 @@
 <?php
-
+include_once(__DIR__ . "/../model/modelEvento.php");    
 class controllerEvento{
     public function listarEvento(){
         try{
@@ -14,14 +14,15 @@ class controllerEvento{
             $modelEventos = new modelEvento();
             return $modelEventos->buscarEventoId($id_evento);
         }catch(PDOException $e){
+            echo $e;
             return false;
         }
     }
 
     public function cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao){
       try{
-        $modelEventos = new modelEvento();
-        return $modelEventos->cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao);
+        $modelEvento = new modelEvento();
+        return $modelEvento->cadastrarEvento($nomeEvento,$data_evento,$horaInicio,$horaFim,$descricao);
       } catch (PDOException $e){
         return false;
       }
