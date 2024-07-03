@@ -124,8 +124,24 @@ footer {
     position: relative;
     bottom: 0;
     width: 100%;
-<<<<<<< HEAD
 }
-=======
+
+
+.mensagem {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 14px;
 }
->>>>>>> 01800f9d33a5cd58c1990645cfadd43bd6d3df31
+
+.mensagem.sucesso {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #d6e9c6;
+}
+
+.mensagem.erro {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #ebccd1;
+}
