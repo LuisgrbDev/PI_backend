@@ -1,5 +1,7 @@
 <?php
 
+require_once 'backend/config/conexao.php';
+
 class modelUsuarios {
     public function listarUsuarios(){
         try {
@@ -67,7 +69,7 @@ class modelUsuarios {
                 return false;
             }
         } catch(PDOException $e) {
-            return false; 
+            return $e; 
         }
     }
 }

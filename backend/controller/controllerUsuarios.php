@@ -1,6 +1,6 @@
 <?php
+require_once 'backend/model/modelUsuarios.php';
 
-require_once 'modelUsuarios.php';
 
 class controllerUsuarios {
 
