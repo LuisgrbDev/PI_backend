@@ -22,12 +22,12 @@ class modelEventos
         }
     }
 
-    public function listarConvidadosPorEvento($id_evento) {
+    public function buscarConvidadosId($id_evento) {
         try {
             $pdo = Database::conexao();
             $query = "SELECT convidados.nomeConvidado AS nome, 
                              convidados.cpf AS cpf, 
-                             categoria.nomeCategoria AS nomeCategoria
+                             categoria.nomeCategoria AS categoria
                       FROM eventos
                       JOIN convidados ON eventos.id_convidado = convidados.id_convidado
                       JOIN categoria ON eventos.id_categoria = categoria.id_categoria
@@ -50,9 +50,10 @@ class modelEventos
             $pdo = Database::conexao();
             $query = "SELECT EVENTO.nomeEvento AS evento, 
             EVENTO.data_evento AS DataDoEvento, 
-            CONVIDADOS.nomeConvidado AS nome, 
-            CONVIDADOS.cpf AS cpf, 
-            CATEGORIA.nomeCategoria AS categoria, 
+            EVENTO.imagem AS imagem, 
+            EVENTO.horaInicio AS Inicio, 
+            EVENTO.horaFim AS Fim, 
+            EVENTO.descricao AS descricao, 
             eventos.id 
      FROM eventos
      JOIN convidados ON eventos.id_convidado = convidados.id_convidado  

@@ -18,6 +18,14 @@ class controllerEventos{
             return false;
         }
     }
+    public function buscarConvidadosId($id_evento){
+        try{    
+            $modelEventos = new modelEventos();
+            return $modelEventos->buscarConvidadosId($id_evento);
+        }catch (PDOException $e){
+            return false;
+        }
+    }
     public  function cadastrarEventos($id_convidado,$id_evento,$id_categoria){
         try{
             $modelEventos = new modelEventos();
