@@ -27,7 +27,8 @@ class modelEventos
             $pdo = Database::conexao();
             $query = "SELECT convidados.nomeConvidado AS nome, 
                              convidados.cpf AS cpf, 
-                             categoria.nomeCategoria AS categoria
+                             categoria.nomeCategoria AS categoria,
+                             convidados.id_convidado AS id
                       FROM eventos
                       JOIN convidados ON eventos.id_convidado = convidados.id_convidado
                       JOIN categoria ON eventos.id_categoria = categoria.id_categoria
@@ -49,7 +50,8 @@ class modelEventos
         try {
             $pdo = Database::conexao();
             $query = "SELECT EVENTO.nomeEvento AS evento, 
-            EVENTO.data_evento AS DataDoEvento, 
+            EVENTO.data_evento AS DataDoEvento,
+            EVENTO.id_evento AS id,
             EVENTO.imagem AS imagem, 
             EVENTO.horaInicio AS Inicio, 
             EVENTO.horaFim AS Fim, 
@@ -94,6 +96,20 @@ class modelEventos
             $pdo = Database::conexao();
             $sql = $pdo->prepare("DELETE FROM eventos WHERE id_evento = :id");
             $sql->bindParam("id", $id);
+            $sql->execute();
+            return true;
+        } catch (PDOException $e) {
+            echo $e;
+            return false;
+        }
+    }
+    public function excluirConvidadoId($id_evento,$id_convidado)
+    {
+        try {
+            $pdo = Database::conexao();
+            $sql = $pdo->prepare("DELETE FROM eventos where id_evento = :id_evento AND id_convidado = :id_convidado");
+            $sql->bindParam("id_evento", $id_evento);
+            $sql->bindParam("id_convidado", $id_convidado);
             $sql->execute();
             return true;
         } catch (PDOException $e) {

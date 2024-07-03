@@ -43,6 +43,14 @@ class controllerEventos{
             return false;
         }
     }
+    public  function excluirConvidadoId($id_evento,$id_convidado){
+        try{
+            $modelEventos = new modelEventos();
+            return $modelEventos->excluirConvidadoId($id_evento,$id_convidado);
+        } catch(PDOException $e){
+            return false;
+        }
+    }
 
 
 }
