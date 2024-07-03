@@ -31,9 +31,9 @@ $convidados = $controllerEventos->buscarConvidadosId($id_evento);
         <div class="logo-img"><a href="cadastro.html"><img src="../assets/logo.png" alt=""></a></div>
         <nav>
             <ul>
-                <li><a href="login.html">LOGIN</a></li>
-                <li><a href="cadastro.html">CADASTRE-SE</a></li>
-                <li><a href="eventos.html">EVENTOS</a></li>
+                <li><a href="login.php">LOGIN</a></li>
+                <li><a href="cadastro.php">CADASTRE-SE</a></li>
+                <li><a href="eventos.php">EVENTOS</a></li>
                 <span class="material-symbols-outlined">
                     login
                     </span>
