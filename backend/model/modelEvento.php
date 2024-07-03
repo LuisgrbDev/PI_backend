@@ -13,7 +13,7 @@ class modelEvento{
     public function buscarEventoId($id_evento){
         try{
             $pdo = Database::conexao();
-            $sql =$pdo->prepare("SELECT * FROM evento WHERE id =:id_evento");
+            $sql =$pdo->prepare("SELECT * FROM evento WHERE id_evento =:id_evento");
             $sql->bindParam("id_evento",$id_evento);
             $sql->execute();
             $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
@@ -31,6 +31,7 @@ class modelEvento{
             $sql->bindParam(":horaInicio",$horaInicio);
             $sql->bindParam(":horaFim",$horaFim);
             $sql->bindParam(":descricao",$descricao);
+            // $sql->bindParam(":imagem",$imagemEvento);
             $sql->execute();
             return true;
 

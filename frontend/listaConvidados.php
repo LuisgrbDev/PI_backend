@@ -2,8 +2,13 @@
 include_once ("../backend/config/conexao.php");
 include_once ("../backend/controller/controllerEventos.php");
 include_once ("../backend/model/modelEventos.php"); 
+
+$id_evento = $_GET['id_evento'] ?? null;
 $controllerEventos = new controllerEventos();
-$eventos = $controllerEventos->listarEventos();
+$eventos = $controllerEventos->buscarEventosId($id_evento);
+$convidados = $controllerEventos->buscarConvidadosId($id_evento);
+
+
 ?>
 
 
@@ -37,15 +42,17 @@ $eventos = $controllerEventos->listarEventos();
     </header>
 
     <section class="event-banner">
-        <img src="../assets/card1.png" alt="Numanice Campinas">
+        <img src="<?php echo $eventos ? $eventos->imagem: ""?>" alt="Imagem evento">
     </section>
 
-    <section class="event-details">
-        <h1>NUMANICE | CAMPINAS</h1>
-        <p>Sábado, 12 out - 15:00<br>Parque de Eventos CCA - Americana, SP</p>
+    <section class="event-details" >
+        <h1><?php echo $eventos ? $eventos->evento:""?></h1>
+        <p><?php echo $eventos ? $eventos->DataDoEvento: ""?> <br> Inicio: <?php echo $eventos ? $eventos->Inicio: ""?> - Encerramento: <?php echo $eventos ? $eventos->Fim: ""?> <br>
+        INFORMAÇÕES: <br><?php echo $eventos ? $eventos->descricao: ""?>
+        <br>Parque de Eventos CCA - Americana, SP</p>
     </section>
 
-    <section class="guest-list">
+    <section class="guest-list" >
         <h2>Lista de Convidados</h2>
         <table>
             <tr>
@@ -53,11 +60,11 @@ $eventos = $controllerEventos->listarEventos();
                 <th>Cpf</th>
                 <th>Área</th>
             </tr>
-            <?php foreach($eventos as $evento):?>
+            <?php foreach($convidados as $convidado):?>
             <tr>
-                <td><?php echo $evento["NOME"];?><br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
-                <td><?php echo $evento["CPF"];?></td>
-                <td><?php echo $evento["Categoria"];?></td>
+                <td><?php echo $convidados ? $convidado["nome"]:"" ?><br><a href="#">Remover</a> | <a href="#">Alterar</a></td>
+                <td><?php echo $convidados ? $convidado["cpf"]:"" ?></td>
+                <td><?php echo $convidados ? $convidado["categoria"]:"" ?></td>
             </tr>
             <?php endforeach; ?>
         </table>
