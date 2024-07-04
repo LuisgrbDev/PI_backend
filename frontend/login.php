@@ -17,7 +17,8 @@
                 <li><a href="cadastro.php">CADASTRE-SE</a></li>
                 <li><a href="eventos.php">EVENTOS</a></li>
                 <li><a href="listaConvidados.php">LISTA CONVIDADOS</a></li>
-                <a href="../frontend/login.php"><span class="material-symbols-outlined">login</a></span>
+               <!--btn aparente na nav para fazer logou-->
+               <a href="login.php"><span class="material-symbols-outlined">login</a></span></a>
             </ul>
         </nav>
     </header>
