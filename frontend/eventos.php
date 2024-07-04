@@ -34,7 +34,7 @@ $eventos = $controllerEvento->listarEvento();
                 <li><a href="login.php">LOGIN</a></li>
                 <li><a href="eventos.php">EVENTOS</a></li>
                 <li><a href="cadastro.php">CADASTRE-SE</a></li>
-                <span class="material-symbols-outlined">login</span>
+                <a href="../frontend/login.php"><span class="material-symbols-outlined">login</a></span>
             </ul>
         </nav>
     </header>

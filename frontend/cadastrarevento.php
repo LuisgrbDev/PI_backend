@@ -15,11 +15,11 @@
         <div class="logo-img"><a href="login.html"><img src="../assets/logo.png" alt="Logo"></a></div>
         <nav>
             <ul>
-                <li><a href="login.html">LOGIN</a></li>
-                <li><a href="cadastro.html">CADASTRE-SE</a></li>
-                <li><a href="eventos.html">EVENTOS</a></li>
-                <li><a href="listaConvidados.html">LISTA CONVIDADOS</a></li>
-                <span class="material-symbols-outlined">login</span>
+                <li><a href="login.php">LOGIN</a></li>
+                <li><a href="cadastro.php">CADASTRE-SE</a></li>
+                <li><a href="eventos.php">EVENTOS</a></li>
+                <li><a href="listaConvidados.php">LISTA CONVIDADOS</a></li>
+                <a href="../frontend/login.php"><span class="material-symbols-outlined">login</a></span>
             </ul>
         </nav>
     </header>
