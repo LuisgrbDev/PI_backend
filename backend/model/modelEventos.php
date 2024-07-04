@@ -27,6 +27,7 @@ class modelEventos
             $pdo = Database::conexao();
             $query = "SELECT convidados.nomeConvidado AS nome, 
                              convidados.cpf AS cpf, 
+                             DATE_FORMAT(convidados.dataNascimento, '%d/%m/%Y') AS DataNascimento, 
                              categoria.nomeCategoria AS categoria,
                              convidados.id_convidado AS id
                       FROM eventos

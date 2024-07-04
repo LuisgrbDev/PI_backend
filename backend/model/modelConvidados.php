@@ -35,19 +35,17 @@ class modelConvidados {
         }
     }
 
-    public function atualizarConvidados($nomeConvidado, $email, $telefone, $cpf, $dataNascimento, $id_convidado) {
+    public function atualizarConvidados($nomeConvidado,$cpf, $dataNascimento, $id_convidado) {
         try {
             $pdo = Database::conexao();
             $atualizar = $pdo->prepare("UPDATE convidados 
                                         SET nomeConvidado = :nomeConvidado, 
-                                        email = :email, 
-                                        telefone = :telefone,
                                         cpf = :cpf,
                                         dataNascimento = :dataNascimento
                                         WHERE id_convidado = :id_convidado");
             $atualizar->bindParam(':nomeConvidado', $nomeConvidado);
-            $atualizar->bindParam(':email', $email);
-            $atualizar->bindParam(':telefone', $telefone);
+            // $atualizar->bindParam(':email', $email);
+            // $atualizar->bindParam(':telefone', $telefone);
             $atualizar->bindParam(':cpf', $cpf);
             $atualizar->bindParam(':dataNascimento', $dataNascimento);
             $atualizar->bindParam(':id_convidado', $id_convidado);

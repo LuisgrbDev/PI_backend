@@ -39,8 +39,8 @@
                 <input type="time" name="horarioEncerramento" placeholder="Nome Evento" required>
                 <label for="">Descrição do Evento</label>
                 <input type="text" name="descricaoEvento" placeholder="" required>
-                <!-- <label for="">Imagem Evento</label>
-                <input type="file" name="imagemEvento" placeholder="" > -->
+                <!-- <label for="">Imagem</label>
+                <input type="text" name="imagem" placeholder="" > -->
                 <button type="submit">CADASTRAR</button>
             </form>
            

@@ -22,10 +22,10 @@ class controllerConvidados {
 
     }
 
-    public function atualizarConvidados($nomeConvidado, $email, $telefone, $cpf, $dataNascimento, $id_convidado) {
+    public function atualizarConvidados($nomeConvidado, $cpf, $dataNascimento, $id_convidado) {
         try {
             $modelConvidados = new modelConvidados();
-            return $modelConvidados->atualizarConvidados($nomeConvidado, $email, $telefone, $cpf, $dataNascimento, $id_convidado);
+            return $modelConvidados->atualizarConvidados($nomeConvidado, $cpf, $dataNascimento, $id_convidado);
         } catch (PDOException $e) {
             return false;
         }

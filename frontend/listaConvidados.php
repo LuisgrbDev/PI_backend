@@ -58,12 +58,14 @@ $convidados = $controllerEventos->buscarConvidadosId($id_evento);
             <tr>
                 <th>Nome</th>
                 <th>Cpf</th>
+                <th>Data Nascimento</th>
                 <th>Área</th>
             </tr>
             <?php foreach($convidados as $convidado):?>
             <tr>
                 <td><?php echo $convidados ? $convidado["nome"]:"" ?><br><a href='#'>Remover</a>|<a href="#">Alterar</a></td>
                 <td><?php echo $convidados ? $convidado["cpf"]:"" ?></td>
+                <td><?php echo $convidados ? $convidado["DataNascimento"]:"" ?></td>
                 <td><?php echo $convidados ? $convidado["categoria"]:"" ?></td>
             </tr>
             <?php endforeach; ?>
