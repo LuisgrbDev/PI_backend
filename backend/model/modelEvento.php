@@ -31,11 +31,12 @@ class modelEvento{
             $sql->bindParam(":horaInicio",$horaInicio);
             $sql->bindParam(":horaFim",$horaFim);
             $sql->bindParam(":descricao",$descricao);
-            // $sql->bindParam(":imagem",$imagemEvento);
+            // $sql->bindParam(":imagem",$imagem);
             $sql->execute();
             return true;
 
         }catch(PDOException $e){
+          
             return false;
         }
     }

@@ -23,7 +23,7 @@ $convidados = $controllerEventos->buscarConvidadosId($id_evento);
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-    <title>Numanice | Campinas</title>
+    <title><?php echo $eventos->evento;?></title>
     <link rel="stylesheet" href="../frontend/css/listaConvidados.css">
 </head>
 <body>
@@ -41,13 +41,13 @@ $convidados = $controllerEventos->buscarConvidadosId($id_evento);
     </header>
 
     <section class="event-banner">
-        <img src="<?php echo $eventos ? $eventos->imagem: ""?>" alt="Imagem evento">
+    <img src="<?php echo !empty($eventos->imagem) ? $eventos->imagem : '../assets/logo.png'; ?>" alt="Imagem evento">
     </section>
 
     <section class="event-details" >
-        <h1><?php echo $eventos ? $eventos->evento:""?></h1>
-        <p><?php echo $eventos ? $eventos->DataDoEvento: ""?> <br> Inicio: <?php echo $eventos ? $eventos->Inicio: ""?> - Encerramento: <?php echo $eventos ? $eventos->Fim: ""?> <br>
-        INFORMAÇÕES: <br><?php echo $eventos ? $eventos->descricao: ""?>
+        <h1><?php echo $eventos->evento;?></h1>
+        <p><?php echo $eventos->DataDoEvento;?> <br> Inicio: <?php echo $eventos->Inicio;?> - Encerramento: <?php echo $eventos->Fim;?> <br>
+        INFORMAÇÕES: <br><?php echo $eventos->descricao;?>
         <br>Parque de Eventos CCA - Americana, SP</p>
     </section>
 
@@ -57,13 +57,15 @@ $convidados = $controllerEventos->buscarConvidadosId($id_evento);
             <tr>
                 <th>Nome</th>
                 <th>Cpf</th>
+                <th>Data Nascimento</th>
                 <th>Área</th>
             </tr>
             <?php foreach($convidados as $convidado):?>
             <tr>
-                <td><?php echo $convidados ? $convidado["nome"]:"" ?><br><a href='#'>Remover</a>|<a href="#">Alterar</a></td>
-                <td><?php echo $convidados ? $convidado["cpf"]:"" ?></td>
-                <td><?php echo $convidados ? $convidado["categoria"]:"" ?></td>
+                <td><?php echo $convidado["nome"]; ?><br><a href="excluirConvidado.php?id_evento=<?php echo $eventos->id_evento; ?>&id_convidado=<?php echo $convidado["id"];?>">Remover</a>|<a href="atualizarconvidado.php?id_convidado=<?php echo$convidado["id"];?>&id_evento=<?php echo $eventos->id_evento;?>">Alterar</a></td>
+                <td><?php echo $convidado["cpf"];?></td>
+                <td><?php echo $convidado["DataNascimento"];?></td>
+                <td><?php echo $convidado["categoria"];?></td>
             </tr>
             <?php endforeach; ?>
         </table>

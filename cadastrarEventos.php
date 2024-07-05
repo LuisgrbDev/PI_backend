@@ -7,24 +7,23 @@ if ($type === "register") {
     
     $controllerEvento = new controllerEvento();
     
-    $nomeEvento = filter_input(INPUT_POST,"nomeEvento");
+    $nomeEvento =$_POST["nomeEvento"];
     $dataEvento = $_POST["dataEvento"];
 
     $horarioInicio = $_POST["horarioInicio"];
     $horarioFim = $_POST["horarioEncerramento"];
     $descricaoEvento = $_POST["descricaoEvento"];
-    
-    // $imagemEvento = $_FILES["imagemEvento"];
+    // $imagem = $_POST["imagem"];
+    // echo $imagem;
   
     $resultado = $controllerEvento->cadastrarEvento($nomeEvento, $dataEvento, $horarioInicio, $horarioFim, $descricaoEvento);
-    echo $resultado;
+
     if ($resultado) {
-        
         header("Location: frontend/eventos.php");
         exit();
     } else {
+        
         echo "Erro ao cadastrar evento.";
     }
 }
 ?>
-<h2>OLA</h2>

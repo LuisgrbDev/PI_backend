@@ -28,7 +28,7 @@
     <main>
         <div class="form-container">
             <h2>CADASTRE UM NOVO <br> <span class="form-text">EVENTO</span></h2>
-            <form action="../testeCadastrarEventos.php" method="post">
+            <form action="../cadastrarEventos.php" method="post">
             <input type="hidden" name="type" value="register">
                 <label for="" >Nome Evento</label>
                 <input type="text" name="nomeEvento" placeholder="" required>
@@ -40,8 +40,6 @@
                 <input type="time" name="horarioEncerramento" placeholder="Nome Evento" required>
                 <label for="">Descrição do Evento</label>
                 <input type="text" name="descricaoEvento" placeholder="" required>
-                <!-- <label for="">Imagem Evento</label>
-                <input type="file" name="imagemEvento" placeholder="" > -->
                 <button type="submit">CADASTRAR</button>
             </form>
            
