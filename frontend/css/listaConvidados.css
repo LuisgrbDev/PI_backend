@@ -1,0 +1,129 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #941E1E;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem 6rem;
+}
+
+header .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.logo-img img {
+    max-width: 150px;
+    height: auto;
+}
+
+.logo-img {
+    margin-left: 20px;
+}
+
+
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li {
+    margin-left: 2rem;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.event-banner {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.event-banner img {
+    width: 50%;
+    height: auto;
+}
+
+.event-details {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.event-details h1 {
+    color: #941E1E;
+    font-weight: 600;
+}
+
+.event-details p {
+    color: #696969;
+    font-weight: 400;
+}
+
+.guest-list {
+    width: 80%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    margin-bottom: 100px;
+}
+
+.guest-list h2 {
+    color: #941E1E;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.guest-list table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.guest-list table, th, td {
+    border: 1px solid #ddd;
+}
+
+.guest-list th, td {
+    padding: 10px;
+    text-align: left;
+}
+
+.guest-list a {
+    color: #941E1E;
+    text-decoration: none;
+}
+
+footer {
+    background-color: #941E1E;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+.material-symbols-outlined {
+    font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+    padding-left: 30px;
+<<<<<<< HEAD
+}
+=======
+}
+>>>>>>> 01800f9d33a5cd58c1990645cfadd43bd6d3df31
