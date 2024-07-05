@@ -10,14 +10,15 @@
 </head>
 <body>
     <header>
-        <div class="logo-img"><a href="login.html"><img src="../assets/logo.png" alt="Logo"></a></div>
+        <div class="logo-img"><a href="login.php"><img src="../assets/logo.png" alt="Logo"></a></div>
         <nav>
             <ul>
-                <li><a href="login.html">LOGIN</a></li>
+                <li><a href="login.php">LOGIN</a></li>
                 <li><a href="cadastro.php">CADASTRE-SE</a></li>
                 <li><a href="eventos.php">EVENTOS</a></li>
                 <li><a href="listaConvidados.php">LISTA CONVIDADOS</a></li>
-                <span class="material-symbols-outlined">login</span>
+               <!--btn aparente na nav para fazer logou-->
+               <a href="login.php"><span class="material-symbols-outlined">login</a></span></a>
             </ul>
         </nav>
     </header>
