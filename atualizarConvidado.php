@@ -17,7 +17,7 @@ if ($type === "register") {
     $id= $_GET['id_evento'];
 
     if ($resultado) {
-        header("Location: listaConvidados.php?id_evento=$id");
+        header("Location: frontend/eventos.php");
         exit;
     } else {
         echo "Erro ao atualizar convidado.";
