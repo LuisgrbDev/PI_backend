@@ -22,7 +22,8 @@ class modelEventos
         }
     }
 
-    public function buscarConvidadosId($id_evento) {
+    public function buscarConvidadosId($id_evento)
+    {
         try {
             $pdo = Database::conexao();
             $query = "SELECT convidados.nomeConvidado AS nome, 
@@ -34,12 +35,12 @@ class modelEventos
                       JOIN convidados ON eventos.id_convidado = convidados.id_convidado
                       JOIN categoria ON eventos.id_categoria = categoria.id_categoria
                       WHERE eventos.id_evento = :id_evento";
-    
+
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(":id_evento", $id_evento, PDO::PARAM_INT);
             $stmt->execute();
             $convidados = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    
+
             return $convidados;
         } catch (PDOException $e) {
             return []; // Retornar um array vazio em caso de erro
@@ -52,17 +53,15 @@ class modelEventos
             $pdo = Database::conexao();
             $query = "SELECT EVENTO.nomeEvento AS evento, 
             EVENTO.data_evento AS DataDoEvento,
-            EVENTO.id_evento AS id,
+            EVENTO.id_evento AS id_evento,
             EVENTO.imagem AS imagem, 
             EVENTO.horaInicio AS Inicio, 
             EVENTO.horaFim AS Fim, 
-            EVENTO.descricao AS descricao, 
-            eventos.id 
-     FROM eventos
-     JOIN convidados ON eventos.id_convidado = convidados.id_convidado  
-     JOIN categoria ON eventos.id_categoria = categoria.id_categoria
-     JOIN evento ON eventos.id_evento = evento.id_evento 
-     WHERE eventos.id_evento = :id_evento;";
+            EVENTO.descricao AS descricao
+            -- eventos.id 
+            FROM evento
+            -- JOIN evento ON eventos.id_evento = evento.id_evento 
+            WHERE id_evento = :id_evento;";
 
             $stmt = $pdo->prepare($query);
             $stmt->bindParam(":id_evento", $id_evento, PDO::PARAM_INT);
@@ -104,7 +103,7 @@ class modelEventos
             return false;
         }
     }
-    public function excluirConvidadoId($id_evento,$id_convidado)
+    public function excluirConvidadoId($id_evento, $id_convidado)
     {
         try {
             $pdo = Database::conexao();

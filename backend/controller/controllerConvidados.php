@@ -11,6 +11,15 @@ class controllerConvidados {
         }
     }
 
+    public function convidadoId($id_convidado) {
+        try {
+            $modelConvidados = new modelConvidados();
+            return $modelConvidados->convidadoId($id_convidado);
+        } catch (PDOException $e) {
+            return false;
+        }
+    }
+
     public function cadastrarConvidados($nomeConvidado, $email, $telefone, $cpf, $dataNascimento) {
         try{ 
             $modelConvidados = new modelConvidados();

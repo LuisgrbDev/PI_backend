@@ -27,4 +27,3 @@ if ($type === "register") {
     }
 }
 ?>
-<h2>OLA</h2>

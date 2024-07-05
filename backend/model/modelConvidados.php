@@ -13,6 +13,27 @@ class modelConvidados {
             return false;
         }
     }
+    public function convidadoId($id_convidado) {
+    try {
+        $pdo = Database::conexao();
+        $consulta = $pdo->prepare("SELECT nomeConvidado, cpf, dataNascimento FROM convidados WHERE id_convidado = :id_convidado");
+        $consulta->bindParam(':id_convidado', $id_convidado, PDO::PARAM_INT);
+        $consulta->execute();
+
+        // Obtém o resultado da consulta
+        $convidado = $consulta->fetch(PDO::FETCH_ASSOC);
+
+        // Verifica se encontrou o convidado
+        if ($convidado) {
+            return $convidado;
+        } else {
+            return null; // Ou lança uma exceção se preferir
+        }
+    } catch (PDOException $e) {
+        // Trate a exceção aqui (por exemplo, log, mensagem de erro, etc.)
+        return null;
+    }
+}
 
     public function cadastrarConvidados($nomeConvidado, $email, $telefone, $cpf, $dataNascimento) {
         try{
@@ -44,8 +65,6 @@ class modelConvidados {
                                         dataNascimento = :dataNascimento
                                         WHERE id_convidado = :id_convidado");
             $atualizar->bindParam(':nomeConvidado', $nomeConvidado);
-            // $atualizar->bindParam(':email', $email);
-            // $atualizar->bindParam(':telefone', $telefone);
             $atualizar->bindParam(':cpf', $cpf);
             $atualizar->bindParam(':dataNascimento', $dataNascimento);
             $atualizar->bindParam(':id_convidado', $id_convidado);
